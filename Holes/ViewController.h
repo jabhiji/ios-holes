@@ -11,6 +11,7 @@
 #import "GameModel.h"
 #import "Ball.h"
 #import "Holes.h"
+#import "Flag.h"
 
 @interface ViewController : UIViewController
 
@@ -25,6 +26,9 @@
 
 // view in which the ball is drawn
 @property (strong, nonatomic) Ball* ball;
+
+// view for the flag
+@property (strong, nonatomic) Flag* flag;
 
 // display the number of balls left
 @property (strong, nonatomic) IBOutlet UILabel *ballCount;

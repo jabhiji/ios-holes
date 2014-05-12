@@ -18,6 +18,7 @@
 @synthesize motionManager;
 @synthesize greenTable;
 @synthesize ball;
+@synthesize flag;
 @synthesize ballCount, showScore;
 @synthesize holeView;
 @synthesize timer;
@@ -29,6 +30,12 @@ int reachedFlag = 0;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // initialize flag view
+    CGRect flagRect = CGRectMake(0, 0, 30, 30);
+    flag = [[Flag alloc] initWithFrame:flagRect];
+    [flag setBackgroundColor:[UIColor clearColor]];
+    [greenTable addSubview:flag];
     
     // initialize Ball object
     CGRect viewRect = CGRectMake(100, 100, 40, 40);
