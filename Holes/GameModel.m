@@ -13,6 +13,39 @@
 @synthesize ux, uy, COR;
 @synthesize ax, ay;
 @synthesize width, height;
+@synthesize score, ballsLeft;
+@synthesize xBH, yBH, radiusBH;
+
+// specify black holes
+
+- (void) createHoles
+{
+    int numberOfHoles = 5;
+    
+    xBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
+    yBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
+    radiusBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
+    
+    [xBH addObject:@(0.25*width)];
+    [yBH addObject:@(0.25*height)];
+    [radiusBH addObject:@(20.0)];
+    
+    [xBH addObject:@(0.75*width)];
+    [yBH addObject:@(0.25*height)];
+    [radiusBH addObject:@(20.0)];
+    
+    [xBH addObject:@(0.50*width)];
+    [yBH addObject:@(0.50*height)];
+    [radiusBH addObject:@(20.0)];
+    
+    [xBH addObject:@(0.25*width)];
+    [yBH addObject:@(0.75*height)];
+    [radiusBH addObject:@(20.0)];
+    
+    [xBH addObject:@(0.75*width)];
+    [yBH addObject:@(0.75*height)];
+    [radiusBH addObject:@(20.0)];
+}
 
 // Override superclass implementation of init
 
@@ -22,14 +55,17 @@
     
     if (self) {
         
-        R = 10.0;
+        R = 15.0;
 
         ux = 0.0;
         uy = 0.0;
-        COR = 0.5;
+        COR = 0.45;
         
         ax = 0.0;
         ay = 0.0;
+        
+        score = 0;
+        ballsLeft = 3;
     }
     
     return self;

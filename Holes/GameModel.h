@@ -26,8 +26,20 @@
 @property float width;
 @property float height;
 
+// game score
+@property int score;
+
+// balls remaining
+@property int ballsLeft;
+
+// holes
+@property NSMutableArray* xBH;
+@property NSMutableArray* yBH;
+@property NSMutableArray* radiusBH;
+
 // methods
 - (void) setInitialBallPosition;
 - (void) updateBallPosition;
+- (void) createHoles;
 
 @end

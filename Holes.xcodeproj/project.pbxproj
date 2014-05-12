@@ -25,6 +25,8 @@
 		1E2E71FE1920AD15009D232C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71FD1920AD15009D232C /* background.png */; };
 		1E2E72011920AE71009D232C /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E72001920AE71009D232C /* GameModel.m */; };
 		1E2E72041920AF5B009D232C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E72031920AF5B009D232C /* Ball.m */; };
+		1E2E72061920F073009D232C /* greenTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E72051920F073009D232C /* greenTable.png */; };
+		1E2E72091920F6CB009D232C /* Holes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E72081920F6CB009D232C /* Holes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,9 @@
 		1E2E72001920AE71009D232C /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		1E2E72021920AF5B009D232C /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		1E2E72031920AF5B009D232C /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
+		1E2E72051920F073009D232C /* greenTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenTable.png; sourceTree = "<group>"; };
+		1E2E72071920F6CB009D232C /* Holes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Holes.h; sourceTree = "<group>"; };
+		1E2E72081920F6CB009D232C /* Holes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Holes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +136,12 @@
 				1E2E72001920AE71009D232C /* GameModel.m */,
 				1E2E72021920AF5B009D232C /* Ball.h */,
 				1E2E72031920AF5B009D232C /* Ball.m */,
+				1E2E72071920F6CB009D232C /* Holes.h */,
+				1E2E72081920F6CB009D232C /* Holes.m */,
 				1E2E71DB1920ACD4009D232C /* ViewController.h */,
 				1E2E71DC1920ACD4009D232C /* ViewController.m */,
 				1E2E71DE1920ACD4009D232C /* Images.xcassets */,
+				1E2E72051920F073009D232C /* greenTable.png */,
 				1E2E71FD1920AD15009D232C /* background.png */,
 				1E2E71CD1920ACD4009D232C /* Supporting Files */,
 			);
@@ -245,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2E72061920F073009D232C /* greenTable.png in Resources */,
 				1E2E71DF1920ACD4009D232C /* Images.xcassets in Resources */,
 				1E2E71FE1920AD15009D232C /* background.png in Resources */,
 				1E2E71D11920ACD4009D232C /* InfoPlist.strings in Resources */,
@@ -270,6 +279,7 @@
 				1E2E72041920AF5B009D232C /* Ball.m in Sources */,
 				1E2E71DD1920ACD4009D232C /* ViewController.m in Sources */,
 				1E2E72011920AE71009D232C /* GameModel.m in Sources */,
+				1E2E72091920F6CB009D232C /* Holes.m in Sources */,
 				1E2E71D71920ACD4009D232C /* AppDelegate.m in Sources */,
 				1E2E71D31920ACD4009D232C /* main.m in Sources */,
 			);

@@ -18,6 +18,10 @@
 @synthesize motionManager;
 @synthesize greenTable;
 @synthesize ball;
+@synthesize ballCount, showScore;
+
+// flag to check whether ball reached the flag
+int reachedFlag = 0;
 
 - (void)viewDidLoad
 {
@@ -34,7 +38,13 @@
     model.width  = greenTable.frame.size.width;
     model.height = greenTable.frame.size.height;
     [model setInitialBallPosition];
-
+    [model createHoles];
+    [self drawHoles];
+    
+    // initial score is zero
+    showScore.text = [NSString stringWithFormat:@"%i",0];
+    ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
+    
     // initialize motion manager
     motionManager = [[CMMotionManager alloc] init];
     motionManager.accelerometerUpdateInterval = 1.0/60.0;
@@ -48,6 +58,11 @@
         NSLog(@"No accelerometer! You may be running on the iOS simulator...");
     }
 
+}
+
+- (void) drawHoles
+{
+    
 }
 
 // get acceleration data and animate ball motion based on current acceleration
@@ -87,9 +102,19 @@
     
     ball.frame = CGRectMake(x-R, y-R, 2*R, 2*R);
     [greenTable addSubview:ball];
+    
+    // check if ball reaches the flag
+    if (x < 1.1*R && y < 1.1*R && reachedFlag == 0) {
+        reachedFlag = 1;
+        model.x = model.width - R;
+        model.y = model.height - R;
+        model.ux = 0.0;
+        model.uy = 0.0;
+        model.score ++;
+        showScore.text    = [NSString stringWithFormat:@"%i",model.score];
+        reachedFlag = 0;
+    }
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
