@@ -23,6 +23,8 @@
 		1E2E71F21920ACD4009D232C /* HolesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E71F11920ACD4009D232C /* HolesTests.m */; };
 		1E2E71FC1920ACEE009D232C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2E71FB1920ACEE009D232C /* CoreMotion.framework */; };
 		1E2E71FE1920AD15009D232C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71FD1920AD15009D232C /* background.png */; };
+		1E2E72011920AE71009D232C /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E72001920AE71009D232C /* GameModel.m */; };
+		1E2E72041920AF5B009D232C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E72031920AF5B009D232C /* Ball.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		1E2E71F11920ACD4009D232C /* HolesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HolesTests.m; sourceTree = "<group>"; };
 		1E2E71FB1920ACEE009D232C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		1E2E71FD1920AD15009D232C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "../../iOS-Ball/iOS-Ball/background.png"; sourceTree = "<group>"; };
+		1E2E71FF1920AE71009D232C /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		1E2E72001920AE71009D232C /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		1E2E72021920AF5B009D232C /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		1E2E72031920AF5B009D232C /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,10 @@
 				1E2E71D51920ACD4009D232C /* AppDelegate.h */,
 				1E2E71D61920ACD4009D232C /* AppDelegate.m */,
 				1E2E71D81920ACD4009D232C /* Main.storyboard */,
+				1E2E71FF1920AE71009D232C /* GameModel.h */,
+				1E2E72001920AE71009D232C /* GameModel.m */,
+				1E2E72021920AF5B009D232C /* Ball.h */,
+				1E2E72031920AF5B009D232C /* Ball.m */,
 				1E2E71DB1920ACD4009D232C /* ViewController.h */,
 				1E2E71DC1920ACD4009D232C /* ViewController.m */,
 				1E2E71DE1920ACD4009D232C /* Images.xcassets */,
@@ -257,7 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2E72041920AF5B009D232C /* Ball.m in Sources */,
 				1E2E71DD1920ACD4009D232C /* ViewController.m in Sources */,
+				1E2E72011920AE71009D232C /* GameModel.m in Sources */,
 				1E2E71D71920ACD4009D232C /* AppDelegate.m in Sources */,
 				1E2E71D31920ACD4009D232C /* main.m in Sources */,
 			);
