@@ -19,6 +19,7 @@
 @synthesize greenTable;
 @synthesize ball;
 @synthesize ballCount, showScore;
+@synthesize holeView;
 
 // flag to check whether ball reached the flag
 int reachedFlag = 0;
@@ -39,12 +40,22 @@ int reachedFlag = 0;
     model.height = greenTable.frame.size.height;
     [model setInitialBallPosition];
     [model createHoles];
-    [self drawHoles];
     
     // initial score is zero
     showScore.text = [NSString stringWithFormat:@"%i",0];
     ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
-    
+
+    // initialize hole UIViews
+    for (int i=0; i<model.numberOfHoles; i++) {
+        float xH = [[model.xBH objectAtIndex:i] floatValue];
+        float yH = [[model.yBH objectAtIndex:i] floatValue];
+        float rH = [[model.radiusBH objectAtIndex:i] floatValue];
+        viewRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
+        holeView = [[Holes alloc] initWithFrame:viewRect];
+        [holeView setBackgroundColor:[UIColor clearColor]];
+        [greenTable addSubview:holeView];
+    }
+
     // initialize motion manager
     motionManager = [[CMMotionManager alloc] init];
     motionManager.accelerometerUpdateInterval = 1.0/60.0;
@@ -58,11 +69,6 @@ int reachedFlag = 0;
         NSLog(@"No accelerometer! You may be running on the iOS simulator...");
     }
 
-}
-
-- (void) drawHoles
-{
-    
 }
 
 // get acceleration data and animate ball motion based on current acceleration

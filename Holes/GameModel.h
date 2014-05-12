@@ -33,6 +33,7 @@
 @property int ballsLeft;
 
 // holes
+@property int numberOfHoles;
 @property NSMutableArray* xBH;
 @property NSMutableArray* yBH;
 @property NSMutableArray* radiusBH;

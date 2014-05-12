@@ -32,7 +32,7 @@
 // display the score
 @property (strong, nonatomic) IBOutlet UILabel *showScore;
 
-// view inside which the hole is drawn
-@property (strong, nonatomic) Holes* hole;
+// array object for holes
+@property (strong, nonatomic) Holes* holeView;
 
 @end

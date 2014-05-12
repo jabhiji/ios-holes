@@ -14,13 +14,13 @@
 @synthesize ax, ay;
 @synthesize width, height;
 @synthesize score, ballsLeft;
-@synthesize xBH, yBH, radiusBH;
+@synthesize numberOfHoles, xBH, yBH, radiusBH;
 
 // specify black holes
 
 - (void) createHoles
 {
-    int numberOfHoles = 5;
+    numberOfHoles = 5;
     
     xBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
     yBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
