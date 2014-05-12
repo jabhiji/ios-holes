@@ -20,7 +20,6 @@
 @synthesize ball;
 @synthesize flag;
 @synthesize ballCount, showScore;
-@synthesize holeView;
 @synthesize timer;
 @synthesize gameOverMessage;
 
@@ -42,8 +41,8 @@ int reachedFlag = 0;
     [greenTable addSubview:flag];
     
     // initialize Ball object
-    CGRect viewRect = CGRectMake(100, 100, 40, 40);
-    ball = [[Ball alloc] initWithFrame:viewRect];
+    CGRect ballRect = CGRectMake(100, 100, 40, 40);
+    ball = [[Ball alloc] initWithFrame:ballRect];
     [ball setBackgroundColor:[UIColor clearColor]];
     
     // initialize model
@@ -57,13 +56,14 @@ int reachedFlag = 0;
     showScore.text = [NSString stringWithFormat:@"%i",0];
     ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
 
-    // initialize hole UIViews
+    // draw holes
+    Holes* holeView = [[Holes alloc] init];
     for (int i=0; i<model.numberOfHoles; i++) {
         float xH = [[model.xBH objectAtIndex:i] floatValue];
         float yH = [[model.yBH objectAtIndex:i] floatValue];
         float rH = [[model.radiusBH objectAtIndex:i] floatValue];
-        viewRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
-        holeView = [[Holes alloc] initWithFrame:viewRect];
+        CGRect holeRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
+        holeView = [[Holes alloc] initWithFrame:holeRect];
         [holeView setBackgroundColor:[UIColor clearColor]];
         [greenTable addSubview:holeView];
     }

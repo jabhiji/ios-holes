@@ -36,9 +36,6 @@
 // display the score
 @property (strong, nonatomic) IBOutlet UILabel *showScore;
 
-// array object for holes
-@property (strong, nonatomic) Holes* holeView;
-
 // timer for animation
 @property (strong, nonatomic) NSTimer* timer;
 
