@@ -21,6 +21,8 @@
 		1E2E71E81920ACD4009D232C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2E71CA1920ACD4009D232C /* UIKit.framework */; };
 		1E2E71F01920ACD4009D232C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71EE1920ACD4009D232C /* InfoPlist.strings */; };
 		1E2E71F21920ACD4009D232C /* HolesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E71F11920ACD4009D232C /* HolesTests.m */; };
+		1E2E71FC1920ACEE009D232C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2E71FB1920ACEE009D232C /* CoreMotion.framework */; };
+		1E2E71FE1920AD15009D232C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71FD1920AD15009D232C /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1E2E71ED1920ACD4009D232C /* HolesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HolesTests-Info.plist"; sourceTree = "<group>"; };
 		1E2E71EF1920ACD4009D232C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E2E71F11920ACD4009D232C /* HolesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HolesTests.m; sourceTree = "<group>"; };
+		1E2E71FB1920ACEE009D232C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1E2E71FD1920AD15009D232C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "../../iOS-Ball/iOS-Ball/background.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2E71FC1920ACEE009D232C /* CoreMotion.framework in Frameworks */,
 				1E2E71C91920ACD4009D232C /* CoreGraphics.framework in Frameworks */,
 				1E2E71CB1920ACD4009D232C /* UIKit.framework in Frameworks */,
 				1E2E71C71920ACD4009D232C /* Foundation.framework in Frameworks */,
@@ -101,6 +106,7 @@
 		1E2E71C51920ACD4009D232C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E2E71FB1920ACEE009D232C /* CoreMotion.framework */,
 				1E2E71C61920ACD4009D232C /* Foundation.framework */,
 				1E2E71C81920ACD4009D232C /* CoreGraphics.framework */,
 				1E2E71CA1920ACD4009D232C /* UIKit.framework */,
@@ -118,6 +124,7 @@
 				1E2E71DB1920ACD4009D232C /* ViewController.h */,
 				1E2E71DC1920ACD4009D232C /* ViewController.m */,
 				1E2E71DE1920ACD4009D232C /* Images.xcassets */,
+				1E2E71FD1920AD15009D232C /* background.png */,
 				1E2E71CD1920ACD4009D232C /* Supporting Files */,
 			);
 			path = Holes;
@@ -229,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2E71DF1920ACD4009D232C /* Images.xcassets in Resources */,
+				1E2E71FE1920AD15009D232C /* background.png in Resources */,
 				1E2E71D11920ACD4009D232C /* InfoPlist.strings in Resources */,
 				1E2E71DA1920ACD4009D232C /* Main.storyboard in Resources */,
 			);
