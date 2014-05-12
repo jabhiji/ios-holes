@@ -16,6 +16,7 @@
 @synthesize score, ballsLeft;
 @synthesize numberOfHoles, xBH, yBH, radiusBH;
 @synthesize ballInsideHole;
+@synthesize dtheta;
 
 // specify black holes
 
@@ -71,30 +72,31 @@
         ballInsideHole = 0;
         
         numberOfHoles = 5;
-        
+        dtheta = M_1_PI/1000;
+
         xBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
         yBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
         radiusBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
         
         [xBH addObject:@(0.2*width)];
         [yBH addObject:@(0.2*height)];
-        [radiusBH addObject:@(20.0)];
+        [radiusBH addObject:@(25.0)];
         
         [xBH addObject:@(0.8*width)];
         [yBH addObject:@(0.2*height)];
-        [radiusBH addObject:@(20.0)];
+        [radiusBH addObject:@(25.0)];
         
         [xBH addObject:@(0.5*width)];
         [yBH addObject:@(0.5*height)];
-        [radiusBH addObject:@(20.0)];
+        [radiusBH addObject:@(25.0)];
         
         [xBH addObject:@(0.2*width)];
         [yBH addObject:@(0.8*height)];
-        [radiusBH addObject:@(20.0)];
+        [radiusBH addObject:@(25.0)];
         
         [xBH addObject:@(0.8*width)];
         [yBH addObject:@(0.8*height)];
-        [radiusBH addObject:@(20.0)];
+        [radiusBH addObject:@(25.0)];
     }
     
     return self;
@@ -150,11 +152,9 @@
         yH -= height/2.0;
         
         // rotate about the origin
-        float dtheta = M_1_PI/1000;
         float xnew =  xH*cosf(dtheta) + yH*sinf(dtheta);
         float ynew = -xH*sinf(dtheta) + yH*cosf(dtheta);
 
-        
         // translate back
         xnew += width/2.0;
         ynew += height/2.0;
@@ -164,7 +164,7 @@
     }
 }
 
-- (void) checkHoleFall
+- (void) checkHoleCapture
 {
     // update hole positions and check if the ball falls inside the holes
     for (int i = 0; i < numberOfHoles; i++) {
@@ -176,7 +176,7 @@
 
         float distance = sqrtf((x-xH)*(x-xH) + (y-yH)*(y-yH));
         
-        if (distance < rH) {
+        if (distance < 0.5*rH) {
             [self setInitialBallPosition];
             ux = 0.0;
             uy = 0.0;

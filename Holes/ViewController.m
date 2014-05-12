@@ -135,7 +135,7 @@ int reachedFlag = 0;
     }
 
     // check if ball falls inside a hole
-    [model checkHoleFall];
+    [model checkHoleCapture];
     
     if (model.ballInsideHole == 1) {
         model.ballsLeft--;
@@ -167,7 +167,9 @@ int reachedFlag = 0;
         model.ux = 0.0;
         model.uy = 0.0;
         model.score ++;
+        model.dtheta += M_1_PI/1000;
         showScore.text = [NSString stringWithFormat:@"%i",model.score];
+
         reachedFlag = 0;
     }
 }
@@ -193,6 +195,7 @@ int reachedFlag = 0;
     model.score = 0;
     model.ballsLeft = 3;
     model.ballInsideHole = 0;
+    model.dtheta = M_1_PI/1000;
     
     showScore.text = [NSString stringWithFormat:@"%i",model.score];
     ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];

@@ -38,12 +38,13 @@
 @property NSMutableArray* yBH;
 @property NSMutableArray* radiusBH;
 @property int ballInsideHole;
+@property float dtheta;
 
 // methods
 - (void) setInitialBallPosition;
 - (void) updateBallPosition;
 - (void) resetHoles;
 - (void) updateHoles;
-- (void) checkHoleFall;
+- (void) checkHoleCapture;
 
 @end
