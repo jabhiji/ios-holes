@@ -111,10 +111,6 @@
 
 - (void) updateBallPosition
 {
-    // update velocity
-    ux += 0.2*ax;
-    uy += 0.2*ay;
-    
     // update position
     x += 0.5*ux;
     y += -0.5*uy;
@@ -136,8 +132,46 @@
         y = R;
         uy = -fabsf(uy)*COR;
     }
+    
+    // trajectory inside the holes
+    float acc_x = 0.0;
+    float acc_y = 0.0;
+    for (int i = 0; i < numberOfHoles; i++) {
+        
+        // initial location
+        float xH = [[xBH objectAtIndex:i] floatValue];
+        float yH = [[yBH objectAtIndex:i] floatValue];
+        float rH = [[radiusBH objectAtIndex:i] floatValue];
+        
+        float distance = sqrtf((x-xH)*(x-xH) + (y-yH)*(y-yH));
+        
+        if (distance < rH) {
+            // non-dimensional distance
+            float dis = distance/rH;
+            
+            // force magnitude (force is center-to-center)
+            if (dis > 0.1 && dis < 1) {
+                float fBH = 0.5/(dis*dis);
+                float COSINE = ((xH - x)/rH)/dis;
+                float SINE   = ((yH - y)/rH)/dis;
+                
+                // force components
+                acc_x = fBH*COSINE;
+                acc_y = -fBH*SINE;
+                
+                // velocity reduces
+                ux = 0.95*ux;
+                uy = 0.95*uy;
+            }
+        }
+    }
+    
+    // dynamics
+    ux += 0.2*(ax + acc_x);
+    uy += 0.2*(ay + acc_y);
 }
 
+// rotate the hole pattern
 - (void) updateHoles
 {
     // update hole positions and check if the ball falls inside the holes
@@ -166,7 +200,7 @@
 
 - (void) checkHoleCapture
 {
-    // update hole positions and check if the ball falls inside the holes
+    // check if the ball is captured by the holes
     for (int i = 0; i < numberOfHoles; i++) {
         
         // initial location
@@ -176,7 +210,7 @@
 
         float distance = sqrtf((x-xH)*(x-xH) + (y-yH)*(y-yH));
         
-        if (distance < 0.5*rH) {
+        if (distance < 0.1*rH) {
             [self setInitialBallPosition];
             ux = 0.0;
             uy = 0.0;
