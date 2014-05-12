@@ -44,5 +44,6 @@
 - (void) updateBallPosition;
 - (void) resetHoles;
 - (void) updateHoles;
+- (void) checkHoleFall;
 
 @end

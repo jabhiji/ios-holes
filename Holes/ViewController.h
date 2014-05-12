@@ -30,6 +30,9 @@
 // view for the flag
 @property (strong, nonatomic) Flag* flag;
 
+// array for holes
+@property (strong, nonatomic) NSMutableArray* holeArray;
+
 // display the number of balls left
 @property (strong, nonatomic) IBOutlet UILabel *ballCount;
 

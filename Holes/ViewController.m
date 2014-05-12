@@ -19,6 +19,7 @@
 @synthesize greenTable;
 @synthesize ball;
 @synthesize flag;
+@synthesize holeArray;
 @synthesize ballCount, showScore;
 @synthesize timer;
 @synthesize gameOverMessage;
@@ -40,6 +41,9 @@ int reachedFlag = 0;
     [flag setBackgroundColor:[UIColor clearColor]];
     [greenTable addSubview:flag];
     
+    // clip things outside the view
+    greenTable.clipsToBounds = YES;
+    
     // initialize Ball object
     CGRect ballRect = CGRectMake(100, 100, 40, 40);
     ball = [[Ball alloc] initWithFrame:ballRect];
@@ -56,16 +60,19 @@ int reachedFlag = 0;
     showScore.text = [NSString stringWithFormat:@"%i",0];
     ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
 
+    // init holeArray
+    holeArray = [[NSMutableArray alloc] initWithCapacity:model.numberOfHoles];
+
     // draw holes
-    Holes* holeView = [[Holes alloc] init];
     for (int i=0; i<model.numberOfHoles; i++) {
         float xH = [[model.xBH objectAtIndex:i] floatValue];
         float yH = [[model.yBH objectAtIndex:i] floatValue];
         float rH = [[model.radiusBH objectAtIndex:i] floatValue];
         CGRect holeRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
-        holeView = [[Holes alloc] initWithFrame:holeRect];
-        [holeView setBackgroundColor:[UIColor clearColor]];
-        [greenTable addSubview:holeView];
+        Holes* holeView = [[Holes alloc] initWithFrame:holeRect];
+        [holeArray addObject:holeView];
+        [holeArray[i] setBackgroundColor:[UIColor clearColor]];
+        [greenTable addSubview:holeArray[i]];
     }
     
     // initialize motion manager
@@ -115,8 +122,21 @@ int reachedFlag = 0;
     
     // update hole positions
     [model updateHoles];
-    
+
+    // draw updated holes
+    for (int i=0; i<model.numberOfHoles; i++) {
+        float xH = [[model.xBH objectAtIndex:i] floatValue];
+        float yH = [[model.yBH objectAtIndex:i] floatValue];
+        float rH = [[model.radiusBH objectAtIndex:i] floatValue];
+        CGRect holeRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
+        [holeArray[i] setFrame:holeRect];
+        [holeArray[i] setBackgroundColor:[UIColor clearColor]];
+        [greenTable addSubview:holeArray[i]];
+    }
+
     // check if ball falls inside a hole
+    [model checkHoleFall];
+    
     if (model.ballInsideHole == 1) {
         model.ballsLeft--;
         if (model.ballsLeft == 0) {

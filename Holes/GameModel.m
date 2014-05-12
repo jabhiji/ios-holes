@@ -23,28 +23,28 @@
 {
     float xH, yH;
     
-    xH = 0.25*width;
-    yH = 0.25*height;
+    xH = 0.2*width;
+    yH = 0.2*height;
     [xBH insertObject:@(xH) atIndex:0];
     [yBH insertObject:@(yH) atIndex:0];
     
-    xH = 0.75*width;
-    yH = 0.25*height;
+    xH = 0.8*width;
+    yH = 0.2*height;
     [xBH insertObject:@(xH) atIndex:1];
     [yBH insertObject:@(yH) atIndex:1];
     
-    xH = 0.50*width;
-    yH = 0.50*height;
+    xH = 0.5*width;
+    yH = 0.5*height;
     [xBH insertObject:@(xH) atIndex:2];
     [yBH insertObject:@(yH) atIndex:2];
     
-    xH = 0.25*width;
-    yH = 0.75*height;
+    xH = 0.2*width;
+    yH = 0.8*height;
     [xBH insertObject:@(xH) atIndex:3];
     [yBH insertObject:@(yH) atIndex:3];
     
-    xH = 0.75*width;
-    yH = 0.75*height;
+    xH = 0.8*width;
+    yH = 0.8*height;
     [xBH insertObject:@(xH) atIndex:4];
     [yBH insertObject:@(yH) atIndex:4];
 }
@@ -76,24 +76,24 @@
         yBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
         radiusBH = [[NSMutableArray alloc] initWithCapacity:numberOfHoles];
         
-        [xBH addObject:@(0.25*width)];
-        [yBH addObject:@(0.25*height)];
+        [xBH addObject:@(0.2*width)];
+        [yBH addObject:@(0.2*height)];
         [radiusBH addObject:@(20.0)];
         
-        [xBH addObject:@(0.75*width)];
-        [yBH addObject:@(0.25*height)];
+        [xBH addObject:@(0.8*width)];
+        [yBH addObject:@(0.2*height)];
         [radiusBH addObject:@(20.0)];
         
-        [xBH addObject:@(0.50*width)];
-        [yBH addObject:@(0.50*height)];
+        [xBH addObject:@(0.5*width)];
+        [yBH addObject:@(0.5*height)];
         [radiusBH addObject:@(20.0)];
         
-        [xBH addObject:@(0.25*width)];
-        [yBH addObject:@(0.75*height)];
+        [xBH addObject:@(0.2*width)];
+        [yBH addObject:@(0.8*height)];
         [radiusBH addObject:@(20.0)];
         
-        [xBH addObject:@(0.75*width)];
-        [yBH addObject:@(0.75*height)];
+        [xBH addObject:@(0.8*width)];
+        [yBH addObject:@(0.8*height)];
         [radiusBH addObject:@(20.0)];
     }
     
@@ -144,14 +144,36 @@
         // initial location
         float xH = [[xBH objectAtIndex:i] floatValue];
         float yH = [[yBH objectAtIndex:i] floatValue];
+        
+        // translate pattern to origin
+        xH -= width/2.0;
+        yH -= height/2.0;
+        
+        // rotate about the origin
+        float dtheta = M_1_PI/1000;
+        float xnew =  xH*cosf(dtheta) + yH*sinf(dtheta);
+        float ynew = -xH*sinf(dtheta) + yH*cosf(dtheta);
+
+        
+        // translate back
+        xnew += width/2.0;
+        ynew += height/2.0;
+        
+        xBH[i] = @(xnew);
+        yBH[i] = @(ynew);
+    }
+}
+
+- (void) checkHoleFall
+{
+    // update hole positions and check if the ball falls inside the holes
+    for (int i = 0; i < numberOfHoles; i++) {
+        
+        // initial location
+        float xH = [[xBH objectAtIndex:i] floatValue];
+        float yH = [[yBH objectAtIndex:i] floatValue];
         float rH = [[radiusBH objectAtIndex:i] floatValue];
-        
-        // translate
-        xH += 1.0;
-        yH += 1.0;
-        [xBH insertObject:@(xH) atIndex:i];
-        [yBH insertObject:@(yH) atIndex:i];
-        
+
         float distance = sqrtf((x-xH)*(x-xH) + (y-yH)*(y-yH));
         
         if (distance < rH) {
