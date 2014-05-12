@@ -42,6 +42,7 @@
 // methods
 - (void) setInitialBallPosition;
 - (void) updateBallPosition;
-- (void) createHoles;
+- (void) resetHoles;
+- (void) updateHoles;
 
 @end

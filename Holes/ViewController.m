@@ -50,7 +50,7 @@ int reachedFlag = 0;
     model.width  = greenTable.frame.size.width;
     model.height = greenTable.frame.size.height;
     [model setInitialBallPosition];
-    [model createHoles];
+    [model resetHoles];
     
     // initial score is zero
     showScore.text = [NSString stringWithFormat:@"%i",0];
@@ -67,7 +67,7 @@ int reachedFlag = 0;
         [holeView setBackgroundColor:[UIColor clearColor]];
         [greenTable addSubview:holeView];
     }
-
+    
     // initialize motion manager
     motionManager = [[CMMotionManager alloc] init];
     motionManager.accelerometerUpdateInterval = 1.0/60.0;
@@ -112,6 +112,9 @@ int reachedFlag = 0;
 {
     // update ball position
     [model updateBallPosition];
+    
+    // update hole positions
+    [model updateHoles];
     
     // check if ball falls inside a hole
     if (model.ballInsideHole == 1) {
@@ -165,6 +168,7 @@ int reachedFlag = 0;
     timer = nil;
 
     [model setInitialBallPosition];
+    [model resetHoles];
     
     model.score = 0;
     model.ballsLeft = 3;
