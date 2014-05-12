@@ -28,6 +28,7 @@
 		1E2E72061920F073009D232C /* greenTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E72051920F073009D232C /* greenTable.png */; };
 		1E2E72091920F6CB009D232C /* Holes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E72081920F6CB009D232C /* Holes.m */; };
 		1E2E720C19211BDE009D232C /* Flag.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E720B19211BDE009D232C /* Flag.m */; };
+		1E81321B1921888300045315 /* restartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E81321A1921888300045315 /* restartButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1E2E72081920F6CB009D232C /* Holes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Holes.m; sourceTree = "<group>"; };
 		1E2E720A19211BDE009D232C /* Flag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flag.h; sourceTree = "<group>"; };
 		1E2E720B19211BDE009D232C /* Flag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flag.m; sourceTree = "<group>"; };
+		1E81321A1921888300045315 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				1E2E71D51920ACD4009D232C /* AppDelegate.h */,
 				1E2E71D61920ACD4009D232C /* AppDelegate.m */,
 				1E2E71D81920ACD4009D232C /* Main.storyboard */,
+				1E81321A1921888300045315 /* restartButton.png */,
 				1E2E71FF1920AE71009D232C /* GameModel.h */,
 				1E2E72001920AE71009D232C /* GameModel.m */,
 				1E2E72021920AF5B009D232C /* Ball.h */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2E72061920F073009D232C /* greenTable.png in Resources */,
+				1E81321B1921888300045315 /* restartButton.png in Resources */,
 				1E2E71DF1920ACD4009D232C /* Images.xcassets in Resources */,
 				1E2E71FE1920AD15009D232C /* background.png in Resources */,
 				1E2E71D11920ACD4009D232C /* InfoPlist.strings in Resources */,
@@ -492,6 +496,7 @@
 				1E2E71F71920ACD4009D232C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E2E71F81920ACD4009D232C /* Build configuration list for PBXNativeTarget "HolesTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				1E2E71FA1920ACD4009D232C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

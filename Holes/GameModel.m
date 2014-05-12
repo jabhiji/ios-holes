@@ -160,8 +160,8 @@
                 acc_y = -fBH*SINE;
                 
                 // velocity reduces
-                ux = 0.95*ux;
-                uy = 0.95*uy;
+                ux = 0.8*ux;
+                uy = 0.8*uy;
             }
         }
     }
