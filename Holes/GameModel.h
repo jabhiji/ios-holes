@@ -37,6 +37,7 @@
 @property NSMutableArray* xBH;
 @property NSMutableArray* yBH;
 @property NSMutableArray* radiusBH;
+@property int ballInsideHole;
 
 // methods
 - (void) setInitialBallPosition;

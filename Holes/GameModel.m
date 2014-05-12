@@ -15,6 +15,7 @@
 @synthesize width, height;
 @synthesize score, ballsLeft;
 @synthesize numberOfHoles, xBH, yBH, radiusBH;
+@synthesize ballInsideHole;
 
 // specify black holes
 
@@ -66,6 +67,7 @@
         
         score = 0;
         ballsLeft = 3;
+        ballInsideHole = 0;
     }
     
     return self;
@@ -104,6 +106,21 @@
     if (y < R) {
         y = R;
         uy = -fabsf(uy)*COR;
+    }
+    
+    // check if the ball falls inside the holes
+    for (int i = 0; i < numberOfHoles; i++) {
+        float xH = [[xBH objectAtIndex:i] floatValue];
+        float yH = [[yBH objectAtIndex:i] floatValue];
+        float rH = [[radiusBH objectAtIndex:i] floatValue];
+        float distance = sqrtf((x-xH)*(x-xH) + (y-yH)*(y-yH));
+        
+        if (distance < rH) {
+            [self setInitialBallPosition];
+            ux = 0.0;
+            uy = 0.0;
+            ballInsideHole = 1;
+        }
     }
 }
 

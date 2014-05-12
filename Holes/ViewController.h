@@ -35,4 +35,10 @@
 // array object for holes
 @property (strong, nonatomic) Holes* holeView;
 
+// timer for animation
+@property (strong, nonatomic) NSTimer* timer;
+
+// methods
+- (IBAction)restartGame:(id)sender;
+
 @end

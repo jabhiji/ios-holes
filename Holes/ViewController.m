@@ -20,6 +20,7 @@
 @synthesize ball;
 @synthesize ballCount, showScore;
 @synthesize holeView;
+@synthesize timer;
 
 // flag to check whether ball reached the flag
 int reachedFlag = 0;
@@ -86,11 +87,11 @@ int reachedFlag = 0;
     }];
     
     // begin animation
-    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0/60.0
-                                             target:self
-                                           selector:@selector(update)
-                                           userInfo:nil
-                                            repeats:YES];
+    timer = [NSTimer timerWithTimeInterval:1.0/60.0
+                                    target:self
+                                  selector:@selector(update)
+                                  userInfo:nil
+                                   repeats:YES];
     
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
@@ -100,6 +101,18 @@ int reachedFlag = 0;
 {
     // update ball position
     [model updateBallPosition];
+    
+    // check if ball falls inside a hole
+    if (model.ballInsideHole == 1) {
+        model.ballsLeft--;
+        if (model.ballsLeft == 0) {
+            NSLog(@"GAME OVER");
+            [timer invalidate];
+            timer = nil;
+        }
+        ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
+        model.ballInsideHole = 0;
+    }
     
     // draw the ball at the new location
     float x = model.x;
@@ -117,7 +130,7 @@ int reachedFlag = 0;
         model.ux = 0.0;
         model.uy = 0.0;
         model.score ++;
-        showScore.text    = [NSString stringWithFormat:@"%i",model.score];
+        showScore.text = [NSString stringWithFormat:@"%i",model.score];
         reachedFlag = 0;
     }
 }
@@ -126,6 +139,31 @@ int reachedFlag = 0;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)restartGame:(id)sender {
+    NSLog(@"RESTARTING GAME");
+    
+    [timer invalidate];
+    timer = nil;
+
+    [model setInitialBallPosition];
+    
+    model.score = 0;
+    model.ballsLeft = 3;
+    model.ballInsideHole = 0;
+    
+    showScore.text = [NSString stringWithFormat:@"%i",model.score];
+    ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
+    
+    // begin animation
+    timer = [NSTimer timerWithTimeInterval:1.0/60.0
+                                    target:self
+                                  selector:@selector(update)
+                                  userInfo:nil
+                                   repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 @end
