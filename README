@@ -1,0 +1,6 @@
+ios-holes
+=========
+
+native version of the holes game
+
+The objective of this game is to tilt your device and guide a ball to the flag without falling into the holes. I had previously written this game in HTML5 and had ported to iOS using PhoneGap. I am now writing a completely native version.
