@@ -45,4 +45,7 @@
 // methods
 - (IBAction)restartGame:(id)sender;
 
+// game over label
+@property (strong, nonatomic) IBOutlet UILabel *gameOverMessage;
+
 @end

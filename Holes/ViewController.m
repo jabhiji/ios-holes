@@ -22,6 +22,7 @@
 @synthesize ballCount, showScore;
 @synthesize holeView;
 @synthesize timer;
+@synthesize gameOverMessage;
 
 // flag to check whether ball reached the flag
 int reachedFlag = 0;
@@ -30,6 +31,9 @@ int reachedFlag = 0;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // hide "GAME OVER" label
+    gameOverMessage.hidden = YES;
     
     // initialize flag view
     CGRect flagRect = CGRectMake(0, 0, 30, 30);
@@ -116,6 +120,9 @@ int reachedFlag = 0;
             NSLog(@"GAME OVER");
             [timer invalidate];
             timer = nil;
+            // show "GAME OVER" label
+            [greenTable bringSubviewToFront:gameOverMessage];
+            gameOverMessage.hidden = NO;
         }
         ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
         model.ballInsideHole = 0;
@@ -150,6 +157,9 @@ int reachedFlag = 0;
 
 - (IBAction)restartGame:(id)sender {
     NSLog(@"RESTARTING GAME");
+    
+    // get rid of the "GAME OVER" label
+    gameOverMessage.hidden = YES;
     
     [timer invalidate];
     timer = nil;
