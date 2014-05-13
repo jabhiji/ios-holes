@@ -39,7 +39,7 @@
     float yCen = height/2.0;
     float maxR = width/2.0;     // WIDTH = HEIGHT in this case
     
-    // big circle to fill corners
+    // yellow circle
     CGContextBeginPath(context);
     CGContextAddArc(context, xCen, yCen, maxR, 0, 2*M_PI, YES);
     [[UIColor yellowColor] setFill];
