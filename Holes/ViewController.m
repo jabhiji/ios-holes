@@ -139,6 +139,10 @@ int reachedFlag = 0;
     
     if (model.ballInsideHole == 1) {
         model.ballsLeft--;
+        
+        [self pauseForOneSecond];
+        
+        ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
         if (model.ballsLeft == 0) {
             NSLog(@"GAME OVER");
             [timer invalidate];
@@ -147,8 +151,11 @@ int reachedFlag = 0;
             [greenTable bringSubviewToFront:gameOverMessage];
             gameOverMessage.hidden = NO;
         }
-        ballCount.text = [NSString stringWithFormat:@"%i",model.ballsLeft];
         model.ballInsideHole = 0;
+        
+        if (model.ballsLeft > 0) {
+            [model setInitialBallPosition];
+        }
     }
     
     // draw the ball at the new location
@@ -171,7 +178,13 @@ int reachedFlag = 0;
         showScore.text = [NSString stringWithFormat:@"%i",model.score];
 
         reachedFlag = 0;
+        [self pauseForOneSecond];
     }
+}
+
+- (void) pauseForOneSecond
+{
+    [NSThread sleepForTimeInterval:1.0];
 }
 
 - (void)didReceiveMemoryWarning

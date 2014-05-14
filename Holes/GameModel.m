@@ -211,7 +211,6 @@
         float distance = sqrtf((x-xH)*(x-xH) + (y-yH)*(y-yH));
         
         if (distance < 0.1*rH) {
-            [self setInitialBallPosition];
             ux = 0.0;
             uy = 0.0;
             ballInsideHole = 1;
