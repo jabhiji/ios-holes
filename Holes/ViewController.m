@@ -64,7 +64,7 @@ int reachedFlag = 0;
     // init holeArray
     holeArray = [[NSMutableArray alloc] initWithCapacity:model.numberOfHoles];
 
-    // draw holes
+    // populate holeArray with Holes objects
     for (int i=0; i<model.numberOfHoles; i++) {
         float xH = [[model.xBH objectAtIndex:i] floatValue];
         float yH = [[model.yBH objectAtIndex:i] floatValue];
@@ -73,7 +73,6 @@ int reachedFlag = 0;
         Holes* holeView = [[Holes alloc] initWithFrame:holeRect];
         [holeArray addObject:holeView];
         [holeArray[i] setBackgroundColor:[UIColor clearColor]];
-        [greenTable addSubview:holeArray[i]];
     }
     
     // initialize motion manager
@@ -124,16 +123,8 @@ int reachedFlag = 0;
     // update hole positions
     [model updateHoles];
 
-    // draw updated holes
-    for (int i=0; i<model.numberOfHoles; i++) {
-        float xH = [[model.xBH objectAtIndex:i] floatValue];
-        float yH = [[model.yBH objectAtIndex:i] floatValue];
-        float rH = [[model.radiusBH objectAtIndex:i] floatValue];
-        CGRect holeRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
-        [holeArray[i] setFrame:holeRect];
-        [holeArray[i] setBackgroundColor:[UIColor clearColor]];
-        [greenTable addSubview:holeArray[i]];
-    }
+    // draw updated hole pattern
+    [self drawHoles];
 
     // check if ball falls inside a hole
     [model checkHoleCapture];
@@ -180,6 +171,20 @@ int reachedFlag = 0;
 
         reachedFlag = 0;
         [self pauseForOneSecond];
+    }
+}
+
+// draw the hole pattern
+- (void) drawHoles
+{
+    for (int i=0; i<model.numberOfHoles; i++) {
+        float xH = [[model.xBH objectAtIndex:i] floatValue];
+        float yH = [[model.yBH objectAtIndex:i] floatValue];
+        float rH = [[model.radiusBH objectAtIndex:i] floatValue];
+        CGRect holeRect = CGRectMake(xH-rH, yH-rH, 2*rH, 2*rH);
+        [holeArray[i] setFrame:holeRect];
+        [holeArray[i] setBackgroundColor:[UIColor clearColor]];
+        [greenTable addSubview:holeArray[i]];
     }
 }
 
