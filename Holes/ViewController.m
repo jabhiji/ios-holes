@@ -47,6 +47,7 @@ int reachedFlag = 0;
     // initialize Ball object
     CGRect ballRect = CGRectMake(100, 100, 40, 40);
     ball = [[Ball alloc] initWithFrame:ballRect];
+    ball.ballColor = [UIColor yellowColor];
     [ball setBackgroundColor:[UIColor clearColor]];
     
     // initialize model

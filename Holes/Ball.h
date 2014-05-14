@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface Ball : UIView
-
+@property UIColor* ballColor;
 @end

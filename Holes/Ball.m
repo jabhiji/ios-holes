@@ -9,6 +9,7 @@
 #import "Ball.h"
 
 @implementation Ball
+@synthesize ballColor;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -39,10 +40,10 @@
     float yCen = height/2.0;
     float maxR = width/2.0;     // WIDTH = HEIGHT in this case
     
-    // yellow circle
+    // circle of specified color
     CGContextBeginPath(context);
     CGContextAddArc(context, xCen, yCen, maxR, 0, 2*M_PI, YES);
-    [[UIColor yellowColor] setFill];
+    [ballColor setFill];
     CGContextDrawPath(context, kCGPathFill);
 }
 
