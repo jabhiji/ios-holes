@@ -419,13 +419,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abhijit Joshi (235TMJTAK2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Abhijit Joshi (QUA62RNLTJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Abhijit Joshi (QUA62RNLTJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Holes/Holes-Prefix.pch";
 				INFOPLIST_FILE = "Holes/Holes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DC907360-9160-41CB-AF79-A0715509D2D4";
+				PROVISIONING_PROFILE = "6D4A72B1-CB1B-4FCE-973A-7AB1161F2BDB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -435,13 +435,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abhijit Joshi (235TMJTAK2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Abhijit Joshi (QUA62RNLTJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Abhijit Joshi (QUA62RNLTJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Holes/Holes-Prefix.pch";
 				INFOPLIST_FILE = "Holes/Holes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DC907360-9160-41CB-AF79-A0715509D2D4";
+				PROVISIONING_PROFILE = "6D4A72B1-CB1B-4FCE-973A-7AB1161F2BDB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
